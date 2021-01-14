@@ -21,7 +21,7 @@ COPY ./docker/docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 # Copy code base
-COPY ./build /var/www/app
+COPY . /var/www/app
 
 # Run entrypoint
 ENTRYPOINT ["/docker-entrypoint.sh"]
