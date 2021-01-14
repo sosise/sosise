@@ -25,6 +25,9 @@ const databaseConfig = {
 
         /**
          * MSSQL database connection
+         *
+         * Package is not installed by default!
+         * You can install it like following: npm install mssql, npm install -D @types/mssql
          */
         mssql: {
             client: 'mssql',
@@ -43,6 +46,9 @@ const databaseConfig = {
 
         /**
          * SQLITE database connection
+         *
+         * Package is not installed by default!
+         * You can install it like following: npm install sqlite3, npm install -D @types/sqlite3
          */
         sqlite: {
             client: 'sqlite3',
