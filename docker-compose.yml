@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+  app:
+    build:
+      dockerfile: "./docker/Dockerfile"
+      context: .
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    ports:
+      - "10000:10000"
+    volumes:
+      - "./.env:/var/www/app/build/.env"
+      - "./cron:/etc/crontabs/root"

@@ -1,0 +1,2 @@
+# Example
+*/1  *  *  *  *  cd /var/www/app ; touch testfile.txt > /dev/null 1>&2
