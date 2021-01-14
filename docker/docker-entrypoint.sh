@@ -6,7 +6,7 @@ then
     exec "$@"
 else
     # Run migrations
-    node artisan.js migrate
+    node build/artisan.js migrate
 
     # Execute supervisord
     exec /usr/bin/supervisord -c /etc/supervisord.conf

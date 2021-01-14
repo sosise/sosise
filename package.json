@@ -1,6 +1,6 @@
 {
   "name": "sosise",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Boiler plate for projects based on ExpressJS and other libraries like commander, knex, etc.",
   "main": "server.js",
   "repository": {
