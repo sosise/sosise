@@ -2,28 +2,32 @@
   "name": "sosise",
   "version": "0.0.1",
   "description": "Boiler plate for projects based on ExpressJS and other libraries like commander, knex, etc.",
-  "main": "index.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/sosise/sosise"
   },
   "scripts": {
     "build": "rm -rf build && tsc",
-    "serve": "node build/index.js",
+    "serve": "node build/server.js",
     "serve-docs": "docsify serve ./docs",
-    "watch": "npm run build && cp .env build && tsc-watch --onSuccess 'node build/index.js'",
+    "watch": "npm run build && cp .env build && tsc-watch --onSuccess 'node build/server.js'",
     "cscheck": "./node_modules/.bin/tslint --project tsconfig.json",
     "eccheck": "./node_modules/.bin/editorconfig-checker -exclude \"(node_modules|build)\""
   },
   "author": "Igor Kov",
   "license": "MIT",
   "dependencies": {
+    "commander": "^6.2.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "sosise-core": "^0.1.5",
+    "sosise-core": "^0.1.13",
     "validatorjs": "^3.22.1"
   },
   "devDependencies": {
+    "@types/validatorjs": "^3.15.0",
+    "@types/express": "^4.17.9",
+    "@types/commander": "^2.12.2",
     "editorconfig": "^0.15.3",
     "editorconfig-checker": "^3.3.0",
     "tsc-watch": "^4.2.9",
