@@ -41,7 +41,7 @@ export default class Handler {
         }
 
         // Send response
-        return response.status(httpResponse.httpCode).send(httpResponse);
+        return response.status(httpResponse.httpCode!).send(httpResponse);
     }
 
     /**
