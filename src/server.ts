@@ -1,4 +1,8 @@
-const test = require('./config/database').default;
-// TODO Debug (remove it)
-console.log(test);
-process.exit(0);
+// The most first thing you need to load the config
+import dotenv from 'dotenv';
+dotenv.config();
+
+import Server from 'sosise-core/build/server';
+
+const server = new Server();
+server.run();

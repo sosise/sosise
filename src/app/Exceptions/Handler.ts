@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
-import ResponseType from '../Types/Response/ResponseType';
 import * as Sentry from '@sentry/node';
-import IOC from '../Libraries/IOC/IOC';
-import LoggerService from '../Services/Logger/LoggerService';
+import IOC from '../ServiceProviders/IOC';
+import LoggerService from 'sosise-core/build/Services/Logger/LoggerService';
+import ExceptionResponse from 'sosise-core/build/Types/ExceptionResponse';
+import sentryConfig from '../../config/sentry';
 
 export default class Handler {
     /**
@@ -14,14 +15,14 @@ export default class Handler {
 
         // Exception should handle it's response itself
         if (typeof exception.handle !== "undefined") {
-            const exceptionHandleResponseType: ResponseType = exception.handle(exception);
-            return response.status(exceptionHandleResponseType.httpCode || 500).send(exceptionHandleResponseType);
+            const exceptionResponse: ExceptionResponse = exception.handle(exception);
+            return response.status(exceptionResponse.httpCode || 500).send(exceptionResponse);
         }
 
         // Otherwise fallback response will be sent
         // Prepare response
-        const responseType: ResponseType = {
-            code: 100,
+        const httpResponse: ExceptionResponse = {
+            code: 2000,
             httpCode: 500,
             message: exception.message,
             data: {
@@ -30,16 +31,17 @@ export default class Handler {
         };
 
         // Log
-        logger.error('Exception occured', responseType);
+        logger.error('Exception occured', httpResponse);
 
         // When in production or staging mode, modify the response
+        // Hide all sensitive information
         if (process.env.APP_ENV !== 'local') {
-            responseType.data = null;
-            responseType.message = 'Server error';
+            httpResponse.data = null;
+            httpResponse.message = 'Server error';
         }
 
         // Send response
-        return response.status(responseType.httpCode!).send(responseType);
+        return response.status(httpResponse.httpCode).send(httpResponse);
     }
 
     /**
@@ -51,23 +53,23 @@ export default class Handler {
 
         // Send exception to sentry
         Sentry.init({
-            dsn: process.env.SENTRY_DSN || undefined,
+            dsn: sentryConfig.dsn,
             tracesSampleRate: 1.0,
         });
         Sentry.captureException(exception);
 
         // Exception should handle it's response itself
         if (typeof exception.handle !== "undefined") {
-            const exceptionHandleResponseType: ResponseType = exception.handle(exception);
+            const exceptionResponse: ExceptionResponse = exception.handle(exception);
             // Log
-            logger.error('Exception occured', exceptionHandleResponseType);
+            logger.error('Exception occured', exceptionResponse);
             return;
         }
 
         // Otherwise fallback response will be sent
         // Prepare response
-        const responseType: ResponseType = {
-            code: 100,
+        const response: ExceptionResponse = {
+            code: 2000,
             message: exception.message,
             data: {
                 stack: exception.stack.split('\n')
@@ -75,6 +77,6 @@ export default class Handler {
         };
 
         // Log
-        logger.error('Exception occured', responseType);
+        logger.error('Exception occured', response);
     }
 }

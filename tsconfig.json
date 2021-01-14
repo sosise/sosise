@@ -18,6 +18,10 @@
         "outDir": "build",
         "rootDir": "src",
     },
+    "include": [
+        "node_modules/sosise-core/build",
+        "./src/**/*"
+    ],
     "lib": [
         "es2015"
     ]
