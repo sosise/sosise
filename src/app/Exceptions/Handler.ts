@@ -53,6 +53,7 @@ export default class Handler {
 
         // Send exception to sentry
         Sentry.init({
+            environment: process.env.APP_ENV,
             dsn: sentryConfig.dsn,
             tracesSampleRate: 1.0,
         });
