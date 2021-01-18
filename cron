@@ -1,2 +1,5 @@
 # Example
 */1  *  *  *  *  cd /var/www/app ; touch testfile.txt > /dev/null 1>&2
+
+# Example, how to redirect logs to your docker-compose logs from cron
+*/1  *  *  *  *  cd /var/www/app ; echo "Test" > /proc/1/fd/1 2>&1
