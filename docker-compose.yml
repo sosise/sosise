@@ -9,5 +9,5 @@ services:
     ports:
       - "10000:10000"
     volumes:
-      - "./.env:/var/www/app/build/.env"
+      - "./.env:/var/www/app/.env"
       - "./cron:/etc/crontabs/root"
