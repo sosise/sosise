@@ -4,7 +4,7 @@ export default class ExampleMiddleware {
     /**
      * This method handles the middleware
      */
-    public handle(request: Request, response: Response, next: NextFunction): void {
+    public async handle(request: Request, response: Response, next: NextFunction): Promise<any> {
         // Before
         next();
         // After

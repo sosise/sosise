@@ -10,7 +10,8 @@
             true,
             "always"
         ],
-        "no-string-literal": false
+        "no-string-literal": false,
+        "only-arrow-functions": false
     },
     "rulesDirectory": []
 }
