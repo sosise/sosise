@@ -5,8 +5,8 @@ if [ $# -gt 0 ]
 then
     exec "$@"
 else
-    # Run migrations
-    node build/artisan.js migrate
+    # Run migrations, if it fails, do not stop
+    node build/artisan.js migrate || true
 
     # Execute supervisord
     exec /usr/bin/supervisord -c /etc/supervisord.conf
