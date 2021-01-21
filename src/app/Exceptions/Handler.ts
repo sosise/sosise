@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import * as Sentry from '@sentry/node';
-import IOC from '../ServiceProviders/IOC';
 import LoggerService from 'sosise-core/build/Services/Logger/LoggerService';
 import ExceptionResponse from 'sosise-core/build/Types/ExceptionResponse';
 import sentryConfig from '../../config/sentry';
+import IOC from 'sosise-core/build/ServiceProviders/IOC';
 
 export default class Handler {
     /**
@@ -26,12 +26,12 @@ export default class Handler {
             httpCode: 500,
             message: exception.message,
             data: {
-                stack: exception.stack.split('\n')
+                stack: exception.stack.split('\n').map((element) => element.trim())
             }
         };
 
         // Log
-        logger.error('Exception occured', httpResponse);
+        logger.critical('Exception occured', httpResponse);
 
         // When in production or staging mode, modify the response
         // Hide all sensitive information
@@ -63,7 +63,7 @@ export default class Handler {
         if (typeof exception.handle !== "undefined") {
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
             // Log
-            logger.error('Exception occured', exceptionResponse);
+            logger.critical('Exception occured', exceptionResponse);
             return;
         }
 
@@ -73,11 +73,11 @@ export default class Handler {
             code: 2000,
             message: exception.message,
             data: {
-                stack: exception.stack.split('\n')
+                stack: exception.stack.split('\n').map((element) => element.trim())
             }
         };
 
         // Log
-        logger.error('Exception occured', response);
+        logger.critical('Exception occured', response);
     }
 }
