@@ -1,7 +1,7 @@
 {
   "name": "sosise",
   "version": "1.0.0",
-  "description": "Boiler plate for projects based on ExpressJS and other libraries like commander, knex, etc.",
+  "description": "Sosise is a web application boilerplate/framework with an expressive, elegant syntax. A Sosise provides a structure and starting point for creating your application, allowing you to focus on creating something amazing while we sweat the details.",
   "main": "server.js",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
     "build": "rm -rf build && tsc",
     "serve": "node build/server.js",
     "serve-docs": "docsify serve ./docs",
-    "watch": "npm run build && cp .env build && tsc-watch --onSuccess 'node build/server.js'",
+    "watch": "npm run build && tsc-watch --onSuccess 'node build/server.js'",
     "cscheck": "./node_modules/.bin/tslint --project tsconfig.json",
     "eccheck": "./node_modules/.bin/editorconfig-checker -exclude \"(node_modules|build)\""
   },
