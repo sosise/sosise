@@ -9,7 +9,7 @@ const iocConfig = {
      * YourServiceName: () => new YourServiceName()
      *
      * How to use:
-     * const logger = IOC.make('LoggerService') as LoggerService;
+     * const logger = IOC.make(LoggerService) as LoggerService;
      */
     normal: {
         /**
