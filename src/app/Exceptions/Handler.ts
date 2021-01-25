@@ -15,7 +15,13 @@ export default class Handler {
 
         // Exception should handle it's response itself
         if (typeof exception.handle !== "undefined") {
+            // Let exception handle it's response
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
+
+            // Log
+            logger.critical('Exception occurred', exceptionResponse);
+
+            // Response
             return response.status(exceptionResponse.httpCode || 500).send(exceptionResponse);
         }
 
@@ -31,7 +37,7 @@ export default class Handler {
         };
 
         // Log
-        logger.critical('Exception occured', httpResponse);
+        logger.critical('Exception occurred', httpResponse);
 
         // When in production or staging mode, modify the response
         // Hide all sensitive information
@@ -61,16 +67,19 @@ export default class Handler {
 
         // Exception should handle it's response itself
         if (typeof exception.handle !== "undefined") {
+            // Let exception handle it's response
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
+
             // Log
-            logger.critical('Exception occured', exceptionResponse);
+            logger.critical('Exception occurred', exceptionResponse);
+
+            // Stop at this point
             return;
         }
 
         // Otherwise fallback response will be sent
         // Prepare response
         const response: ExceptionResponse = {
-            code: 2000,
             message: exception.message,
             data: {
                 stack: exception.stack.split('\n').map((element) => element.trim())
@@ -78,6 +87,6 @@ export default class Handler {
         };
 
         // Log
-        logger.critical('Exception occured', response);
+        logger.critical('Exception occurred', response);
     }
 }
