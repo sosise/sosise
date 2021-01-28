@@ -3,7 +3,19 @@
  */
 const iocConfig = {
     /**
-     * Normal means, that these registrations are non-singletons (sigletons are not supported atm.)
+     * Singleton services
+     *
+     * How to register:
+     * YourServiceName: () => new YourServiceName()
+     *
+     * How to use:
+     * const logger = IOC.makeSingleton(LoggerService) as LoggerService;
+     */
+    singletons: {
+    },
+
+    /**
+     * Non singleton services
      *
      * How to register:
      * YourServiceName: () => new YourServiceName()
@@ -11,7 +23,7 @@ const iocConfig = {
      * How to use:
      * const logger = IOC.make(LoggerService) as LoggerService;
      */
-    normal: {
+    nonSingletons: {
         /**
          * This service is included in the core out of the box
          * If you want to override LoggerService just uncomment this code and import all necessary modules
