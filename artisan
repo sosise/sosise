@@ -1,3 +1,8 @@
 #!/usr/bin/env sh
 
-node build/artisan.js $@
+if [ -d build ]
+then
+    node build/artisan.js $@
+else
+    npm run build ; node build/artisan.js $@
+fi
