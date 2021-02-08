@@ -1,8 +1,13 @@
-node_modules
-build
-coverage
+# IDE
 .vscode
-.DS_STORE
+
+# App
 .env
+build
+node_modules
+coverage
 tmp
 buildcache
+
+# Other
+.DS_STORE
