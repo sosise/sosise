@@ -1,9 +1,12 @@
 import type { Config } from '@jest/types';
+import dotenv from 'dotenv';
 
 /**
- * Override your environment variables here (they will be overriden when testing)
+ * Load .env.testing file when testing
  */
-process.env.APP_ENV = 'test';
+dotenv.config({
+    path: './.env.testing'
+});
 
 /*
  * Jest configuration (TEST)
