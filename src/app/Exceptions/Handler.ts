@@ -88,5 +88,8 @@ export default class Handler {
 
         // Log
         logger.critical('Exception occurred', response);
+
+        // Exit application
+        process.exit(1);
     }
 }
