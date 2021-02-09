@@ -73,8 +73,8 @@ export default class Handler {
             // Log
             logger.critical('Exception occurred', exceptionResponse);
 
-            // Stop at this point
-            return;
+            // Exit application
+            process.exit(1);
         }
 
         // Otherwise fallback response will be sent
