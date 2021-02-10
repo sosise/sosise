@@ -20,7 +20,8 @@ const databaseConfig = {
                 user: process.env.DB_PROJECT_USERNAME || null,
                 password: process.env.DB_PROJECT_PASSWORD || null,
             },
-            pool: { min: 0, max: 5 }
+            pool: { min: 0, max: 5 },
+            // timezone: 'UTC',
         },
 
         /**
@@ -41,7 +42,8 @@ const databaseConfig = {
                     enableArithAbort: true,
                     encrypt: false
                 }
-            }
+            },
+            requestTimeout: 30000,
         },
 
         /**
