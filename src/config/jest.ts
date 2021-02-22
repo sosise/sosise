@@ -9,22 +9,30 @@ dotenv.config({
 });
 
 /*
- * Jest configuration (TEST)
+ * Jest configuration, application testing
  *
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/en/configuration.html
  */
 const config: Config.InitialOptions = {
-    // Root directory where to search for tests folder, please note we are talking here of "build" directory
+    /**
+     * Root directory where to search for tests folder, please note we are talking here of "build" directory
+     */
     rootDir: '../',
 
-    // Automatically clear mock calls and instances between every test
+    /**
+     * Automatically clear mock calls and instances between every test
+     */
     clearMocks: true,
 
-    // The directory where Jest should output its coverage files
+    /**
+     * The directory where Jest should output its coverage files
+     */
     coverageDirectory: 'coverage',
 
-    // Indicates which provider should be used to instrument code for coverage
+    /**
+     * Indicates which provider should be used to instrument code for coverage
+     */
     coverageProvider: 'v8',
 };
 export = config;
