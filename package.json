@@ -10,6 +10,7 @@
   "scripts": {
     "build": "rm -rf build && tsc",
     "serve": "node build/server.js",
+    "start": "npm run serve",
     "serve-docs": "docsify serve ./docs",
     "watch": "npm run build && tsc-watch --onSuccess 'node build/server.js'",
     "cscheck": "./node_modules/.bin/tslint --project tsconfig.json",
