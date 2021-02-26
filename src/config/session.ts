@@ -1,5 +1,10 @@
 const sessionConfig = {
     /**
+     * Enable sessions
+     */
+    enabled: false,
+
+    /**
      * Which session driver to use
      */
     driver: process.env.SESSION_DRIVER || 'file',
