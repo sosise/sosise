@@ -11,7 +11,7 @@ export default class Handler {
      */
     public reportHttpException(request: Request, response: Response, exception: any): Response {
         // Instantiate logger
-        const logger = IOC.make('LoggerService') as LoggerService;
+        const logger = IOC.make(LoggerService) as LoggerService;
 
         // Exception should handle it's response itself
         if (typeof exception.handle !== "undefined") {
@@ -55,7 +55,7 @@ export default class Handler {
      */
     public reportCommandException(exception: any): void {
         // Instantiate logger
-        const logger = IOC.make('LoggerService') as LoggerService;
+        const logger = IOC.make(LoggerService) as LoggerService;
 
         // Send exception to sentry
         Sentry.init({
