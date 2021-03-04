@@ -11,3 +11,11 @@ services:
     volumes:
       - "./.env:/var/www/app/.env"
       - "./cron:/etc/crontabs/root"
+  redis:
+    image: redis:alpine3.13
+    container_name: redis
+    restart: unless-stopped
+    entrypoint: redis-server --appendonly yes
+    # Comment if you don't need persistence
+    volumes:
+      - "./redis:/data"
