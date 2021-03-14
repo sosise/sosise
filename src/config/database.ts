@@ -19,9 +19,9 @@ const databaseConfig = {
                 database: process.env.DB_PROJECT_DATABASE || null,
                 user: process.env.DB_PROJECT_USERNAME || null,
                 password: process.env.DB_PROJECT_PASSWORD || null,
+                // timezone: 'UTC',
             },
             pool: { min: 0, max: 5 },
-            // timezone: 'UTC',
         },
 
         /**
