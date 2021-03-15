@@ -53,7 +53,7 @@ export default class Handler {
     /**
      * Main command exception handling method
      */
-    public reportCommandException(exception: any): void {
+    public async reportCommandException(exception: any): Promise<void> {
         // Instantiate logger
         const logger = IOC.make(LoggerService) as LoggerService;
 
@@ -64,6 +64,7 @@ export default class Handler {
             tracesSampleRate: 1.0,
         });
         Sentry.captureException(exception);
+        await Sentry.flush();
 
         // Exception should handle it's response itself
         if (typeof exception.handle !== "undefined") {
