@@ -48,6 +48,18 @@ const sessionConfig = {
         file: {
             path: process.cwd() + '/storage/sessions'
         },
+
+        /**
+         * Redis storage
+         *
+         * Read more about possible params here https://www.npmjs.com/package/connect-redis
+         */
+         redis: {
+            host: process.env.REDIS_HOST || 'localhost',
+            port: Number(process.env.REDIS_PORT) || 6379,
+            prefix: 'session-',
+            ttl: 86400 // 86400 - one day
+        },
     },
 
     /**
