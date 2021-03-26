@@ -48,6 +48,20 @@ const sessionConfig = {
         file: {
             path: process.cwd() + '/storage/sessions'
         },
+
+        /**
+         * Redis storage
+         *
+         * Read more about possible params here https://www.npmjs.com/package/connect-redis
+         *
+         * If you need to use redis as a session storage it is handy to extract settings to env
+         */
+         redis: {
+            host: 'redis',
+            port: 6379,
+            prefix: 'session-',
+            ttl: 86400 // 86400 - one day
+        },
     },
 
     /**
