@@ -18,4 +18,4 @@ services:
     entrypoint: redis-server --appendonly yes
     # Comment if you don't need persistence
     volumes:
-      - "./storage/redis:/data"
+      - "./redis:/data"
