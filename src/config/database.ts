@@ -14,11 +14,11 @@ const databaseConfig = {
         project: {
             client: 'mysql',
             connection: {
-                host: process.env.DB_PROJECT_HOST || null,
+                host: process.env.DB_PROJECT_HOST || 'localhost',
                 port: Number(process.env.DB_PROJECT_PORT || 3306),
-                database: process.env.DB_PROJECT_DATABASE || null,
-                user: process.env.DB_PROJECT_USERNAME || null,
-                password: process.env.DB_PROJECT_PASSWORD || null,
+                database: process.env.DB_PROJECT_DATABASE || 'sosise',
+                user: process.env.DB_PROJECT_USERNAME || 'root',
+                password: process.env.DB_PROJECT_PASSWORD || 'root',
                 // charset: 'utf8mb4',
                 // timezone: 'UTC',
             },
@@ -27,9 +27,6 @@ const databaseConfig = {
 
         /**
          * MSSQL database connection
-         *
-         * Package is not installed by default!
-         * You can install it like following: npm install mssql, npm install -D @types/mssql
          */
         mssql: {
             client: 'mssql',
@@ -51,15 +48,13 @@ const databaseConfig = {
 
         /**
          * SQLITE database connection
-         *
-         * Package is not installed by default!
-         * You can install it like following: npm install sqlite3, npm install -D @types/sqlite3
          */
         sqlite: {
             client: 'sqlite3',
             connection: {
-                filename: './mydb.sqlite'
-            }
+                filename: process.env.SQLITE_FILE_PATH || './mydb.sqlite'
+            },
+            useNullAsDefault: true,
         },
     }
 };
