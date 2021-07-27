@@ -19,7 +19,7 @@ export default class Handler {
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical('Exception occurred', exceptionResponse);
+            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse);
 
             // Response
             return response.status(exceptionResponse.httpCode || 500).send(exceptionResponse);
@@ -37,7 +37,7 @@ export default class Handler {
         };
 
         // Log
-        logger.critical('Exception occurred', httpResponse);
+        logger.critical(`${exception.constructor.name} exception occurred`, httpResponse);
 
         // When in production or staging mode, modify the response
         // Hide all sensitive information
@@ -72,7 +72,7 @@ export default class Handler {
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical('Exception occurred', exceptionResponse);
+            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse);
 
             // Stop at this point
             return;
@@ -88,6 +88,6 @@ export default class Handler {
         };
 
         // Log
-        logger.critical('Exception occurred', response);
+        logger.critical(`${exception.constructor.name} exception occurred`, response);
     }
 }
