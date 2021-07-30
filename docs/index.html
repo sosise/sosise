@@ -8,6 +8,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css" />
+
+    <style>
+        .markdown-section pre::after,
+        .markdown-section output::after {
+            color: rgb(255, 0, 255);
+        }
+    </style>
 </head>
 
 <body>
@@ -17,9 +24,9 @@
             loadSidebar: true,
             auto2top: true,
             maxLevel: 4,
-            subMaxLevel: 2,
+            subMaxLevel: 0,
             name: 'Your projects name',
-            repo: 'https://github.com/example',
+            repo: 'https://gitlab.com/example',
             search: 'auto', // default
             search: {
                 maxAge: 86400000, // Expiration time, the default one day
