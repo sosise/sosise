@@ -15,7 +15,8 @@
     "watch": "npm run build && tsc-watch --onSuccess 'node build/server.js'",
     "cscheck": "./node_modules/.bin/tslint --project tsconfig.json",
     "eccheck": "./node_modules/.bin/editorconfig-checker -exclude \"(node_modules|build)\"",
-    "test": "jest -c ./build/config/jest.js --coverage"
+    "test": "jest -c ./build/config/jest.js --coverage",
+    "update-sosise": "npm install sosise-core@latest"
   },
   "author": "Igor Kov",
   "license": "MIT",
@@ -34,7 +35,7 @@
     "knex": "^0.95.8",
     "lodash": "^4.17.20",
     "mysql": "^2.18.1",
-    "sosise-core": "^0.6.0",
+    "sosise-core": "^0.6.1",
     "uuid": "^8.3.2",
     "validatorjs": "^3.22.1"
   },
