@@ -22,7 +22,16 @@ const databaseConfig = {
                 // charset: 'utf8mb4',
                 // timezone: 'UTC',
             },
-            pool: { min: 0, max: 5 },
+            pool: {
+                min: 0,
+                max: 5,
+                createTimeoutMillis: 60000,
+                acquireTimeoutMillis: 60000,
+                idleTimeoutMillis: 60000,
+                reapIntervalMillis: 2000,
+                createRetryIntervalMillis: 200,
+                propagateCreateError: false,
+            }
         },
 
         /**
