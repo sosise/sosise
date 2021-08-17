@@ -35,7 +35,7 @@
     "knex": "^0.95.8",
     "lodash": "^4.17.20",
     "mysql": "^2.18.1",
-    "sosise-core": "^0.6.2",
+    "sosise-core": "^0.6.3",
     "uuid": "^8.3.2",
     "validatorjs": "^3.22.1"
   },
