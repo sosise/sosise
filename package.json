@@ -14,7 +14,7 @@
     "serve-docs": "docsify serve ./docs",
     "watch": "npm run build && tsc-watch --onSuccess 'node build/server.js'",
     "cscheck": "./node_modules/.bin/tslint --project tsconfig.json",
-    "eccheck": "./node_modules/.bin/editorconfig-checker -exclude \"(node_modules|build)\"",
+    "eccheck": "./node_modules/.bin/editorconfig-checker -exclude \"(node_modules|build|docs)\"",
     "test": "jest -c ./build/config/jest.js --coverage",
     "update-sosise": "npm install sosise-core@latest"
   },

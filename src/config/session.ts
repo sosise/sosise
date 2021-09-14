@@ -56,7 +56,7 @@ const sessionConfig = {
          *
          * If you need to use redis as a session storage it is handy to extract settings to env
          */
-         redis: {
+        redis: {
             host: 'redis',
             port: 6379,
             prefix: 'session-',

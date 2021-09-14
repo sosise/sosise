@@ -11,6 +11,7 @@ services:
     volumes:
       - "./.env:/var/www/app/.env"
       - "./cron:/etc/crontabs/root"
+      - "./logs:/var/www/app/storage/logs"
   redis:
     image: redis:alpine3.13
     container_name: redis

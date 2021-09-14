@@ -22,15 +22,19 @@ const databaseConfig = {
                 // charset: 'utf8mb4',
                 // timezone: 'UTC',
             },
+            /**
+             * Knex uses Tarn.js for pooling
+             * You can read more about it's configuration params here: https://github.com/vincit/tarn.js
+             */
             pool: {
                 min: 0,
                 max: 5,
-                createTimeoutMillis: 60000,
-                acquireTimeoutMillis: 60000,
-                idleTimeoutMillis: 60000,
-                reapIntervalMillis: 2000,
-                createRetryIntervalMillis: 200,
-                propagateCreateError: false,
+                // createTimeoutMillis: 60000,
+                // acquireTimeoutMillis: 60000,
+                // idleTimeoutMillis: 60000,
+                // reapIntervalMillis: 2000,
+                // createRetryIntervalMillis: 200,
+                // propagateCreateError: false,
             }
         },
 
@@ -52,7 +56,7 @@ const databaseConfig = {
                 // charset: 'utf8mb4',
                 // timezone: 'UTC',
             },
-            requestTimeout: 30000,
+            // requestTimeout: 30000,
         },
 
         /**
