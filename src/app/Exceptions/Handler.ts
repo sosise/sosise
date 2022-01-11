@@ -19,7 +19,7 @@ export default class Handler {
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse);
+            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse, exception.loggingChannel ?? undefined);
 
             // Response
             return response.status(exceptionResponse.httpCode || 500).send(exceptionResponse);
@@ -57,14 +57,17 @@ export default class Handler {
         // Instantiate logger
         const logger = IOC.make(LoggerService) as LoggerService;
 
-        // Send exception to sentry
-        Sentry.init({
-            environment: process.env.APP_ENV,
-            dsn: sentryConfig.dsn,
-            tracesSampleRate: 1.0,
-        });
-        Sentry.captureException(exception);
-        await Sentry.flush();
+        // Check if exception should be sent to sentry
+        if (exception.sendToSentry !== undefined && exception.sendToSentry === true) {
+            // Send exception to sentry
+            Sentry.init({
+                environment: process.env.APP_ENV,
+                dsn: sentryConfig.dsn,
+                tracesSampleRate: 1.0,
+            });
+            Sentry.captureException(exception);
+            await Sentry.flush();
+        }
 
         // Exception should handle it's response itself
         if (typeof exception.handle !== "undefined") {
@@ -72,7 +75,7 @@ export default class Handler {
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse);
+            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse, exception.loggingChannel ?? undefined);
 
             // Stop at this point
             return;

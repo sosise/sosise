@@ -1,8 +1,8 @@
 const loggingConfig = {
     /**
-     * Enables logging to file
+     * Enables logging to files
      */
-    enableLoggingToFile: true,
+    enableLoggingToFiles: true,
 
     /**
      * Directory where file logs should be stored
@@ -10,9 +10,24 @@ const loggingConfig = {
     logFilesDirectory: process.cwd() + '/storage/logs',
 
     /**
-     * Specify wether colorized output should be used in log files
+     * Logging channels
+     * Use them to separate different logs to different files
      */
-    useColorizedOutputInLogFiles: false,
+    channels: {
+        /**
+         * Default channel where all logs will be written when no channel is specified when using log functions
+         */
+        default: {
+            logFileNamePrefix: 'sosise'
+        },
+
+        /**
+         * Example channel, use it like: TODO
+         */
+        example: {
+            logFileNamePrefix: 'example'
+        },
+    }
 };
 
 export default loggingConfig;
