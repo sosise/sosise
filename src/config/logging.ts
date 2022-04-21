@@ -1,8 +1,14 @@
 const loggingConfig = {
     /**
-     * Enables logging to files
+     * Enables logging to console (would log to docker-compose logs)
      */
-    enableLoggingToFiles: true,
+    enableLoggingToConsole: process.env.LOGGING_TO_CONSOLE_ENABLE === 'true',
+
+    /**
+     * Enables logging to files
+     * Attention! This would only work if enableLogging is set to true
+     */
+    enableLoggingToFiles: process.env.LOGGING_TO_FILES_ENABLE === 'true',
 
     /**
      * Directory where file logs should be stored
