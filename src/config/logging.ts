@@ -11,6 +11,20 @@ const loggingConfig = {
     enableLoggingToFiles: process.env.LOGGING_TO_FILES_ENABLE === 'true',
 
     /**
+     * Log level, it's like linux permissions
+     *
+     * Possible log levels are:
+     * - 1 CRITICAL
+     * - 2 ERROR
+     * - 4 WARNING
+     * - 8 INFO
+     * - 16 DEBUG
+     *
+     * Example: you want to log INFO and ERROR only: 8 + 2 = 10
+     */
+    logLevel: process.env.LOGGING_LEVEL || 31,
+
+    /**
      * Directory where file logs should be stored
      */
     logFilesDirectory: process.cwd() + '/storage/logs',
