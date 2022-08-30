@@ -1,5 +1,2 @@
-- Getting Started
-    - [Installation](getting-started/installation.md)
 - Documentation
-    - [Example1](documentation/example1)
-    - [Example2](documentation/example2)
+    - [Example API Method](documentation/example1)

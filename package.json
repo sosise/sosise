@@ -1,6 +1,6 @@
 {
   "name": "sosise",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Sosise is a web application boilerplate/framework with an expressive, elegant syntax. A Sosise provides a structure and starting point for creating your application, allowing you to focus on creating something amazing while we sweat the details.",
   "main": "server.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/sosise/sosise"
   },
   "scripts": {
-    "build": "rm -rf build && tsc",
+    "build": "rm -rf build && rm -rf docs/src/Types && cp -R src/app/Types docs/src/. && tsc",
     "serve": "node build/server.js",
     "start": "npm run serve",
     "serve-docs": "docsify serve ./docs",

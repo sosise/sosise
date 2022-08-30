@@ -1,2 +1,48 @@
 # Example 1
-Pellentesque eleifend sem at pellentesque mollis. Maecenas vitae augue ipsum. Morbi sodales hendrerit imperdiet. Sed dignissim, tortor a consequat blandit, ex nibh vehicula augue, ut posuere lectus velit non turpis. Nunc maximus tempus purus, nec sodales nibh iaculis ac. Cras bibendum magna diam, in euismod ante elementum sed. Curabitur rhoncus, dolor sed aliquet luctus, diam odio aliquam lacus, porttitor lobortis justo dui ut sem. Integer eu metus placerat, sagittis sapien ac, finibus neque. Nulla arcu leo, lacinia iaculis libero eget, fermentum tempus enim. Duis id ipsum consequat, malesuada felis et, sagittis tortor. Pellentesque in nisi accumsan, venenatis turpis sed, malesuada nisi.
+
+**URL** : `/some-url/:id`
+
+**Method** : `GET`
+
+**Auth required** : `YES`
+
+**How to authenticate** : `Send token as a query sting parameter`
+
+## Request example
+```bash
+curl --request GET \
+     --url https://example.com/some-url/1?token="your-api-token"
+```
+
+## Response example
+
+**Code** : `200 OK`
+
+```json
+{
+    "code": 1000,
+    "message": "Delivery information row by id",
+    "data": {
+        "id": 1,
+        "orderId": 1,
+        "customerName": "Igor"
+    }
+}
+```
+
+**Code** : `404 Not found`
+
+```json
+{
+	"code": 3002,
+	"httpCode": 404,
+	"message": "Delivery information row was not found by id",
+	"data": null
+}
+```
+
+## Return type
+
+> Returned data is of type `Object`
+
+[filename1](../src/Types/ExampleType.ts ':include')
