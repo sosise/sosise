@@ -46,3 +46,10 @@ curl --request GET \
 > Returned data is of type `Object`
 
 [filename1](../src/Types/ExampleType.ts ':include')
+
+
+```
+// Works also with Enums and Unifiers
+// [filename2](../src/Unifiers/foo.ts ':include')
+// [filename3](../src/Enums/bar.ts ':include')
+```
