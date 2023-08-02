@@ -24,7 +24,7 @@ const mailConfig = {
         }
 
         /**
-         * Gmail example SMTP configuration
+         * Example GMail SMTP configuration
          */
         // host: "smtp.gmail.com",
         // port: 587,
@@ -38,7 +38,7 @@ const mailConfig = {
         // }
 
         /**
-         * Mailgun example SMTP configuration
+         * Example Mailgun SMTP configuration
          * Please visit https://app.mailgun.com/app/sending/domains/%YOURDOMAIN%/credentials to generate SMTP user
          */
         // host: "smtp.mailgun.org",

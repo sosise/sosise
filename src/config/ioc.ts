@@ -24,16 +24,6 @@ const iocConfig = {
      * const logger = IOC.make(LoggerService) as LoggerService;
      */
     nonSingletons: {
-        /**
-         * This service is included in the core out of the box
-         * If you want to override LoggerService just uncomment this code and import all necessary modules
-         */
-        // LoggerService: () => {
-        //     if (process.env.APP_ENV === 'local') {
-        //         return new LoggerService(new LoggerPrettyConsoleRepository());
-        //     }
-        //     return new LoggerService(new LoggerJsonConsoleRepository());
-        // }
     }
 };
 

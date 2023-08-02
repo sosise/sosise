@@ -11,7 +11,8 @@
             "always"
         ],
         "no-string-literal": false,
-        "only-arrow-functions": false
+        "only-arrow-functions": false,
+        "no-empty": false
     },
     "rulesDirectory": []
 }

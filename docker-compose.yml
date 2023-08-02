@@ -12,6 +12,7 @@ services:
       - "./.env:/var/www/app/.env"
       - "./cron:/etc/crontabs/root"
       - "./logs:/var/www/app/storage/logs"
+      # - /mnt/my_shared_tmpfs:/var/www/app/storage/cache
   redis:
     image: redis:alpine3.13
     container_name: redis
