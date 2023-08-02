@@ -32,7 +32,7 @@ const cacheConfig = {
     /**
      * Checkperiod, the time when the cache service will remove expired cache items in seconds
      */
-    checkperiodInSeconds: 1,
+    checkperiodInSeconds: 60,
 
     /**
      * Driver configuration
