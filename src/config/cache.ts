@@ -45,8 +45,8 @@ const cacheConfig = {
             filePath: process.cwd() + '/storage/cache/cache.json'
         },
         redis: {
-            host: '127.0.0.1',
-            port: 6379,
+            host: process.env.CACHE_REDIS_HOST || '127.0.0.1',
+            port: Number(process.env.CACHE_REDIS_PORT || 6379),
         },
     }
 };
