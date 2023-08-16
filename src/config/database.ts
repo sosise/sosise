@@ -65,7 +65,7 @@ const databaseConfig = {
         sqlite: {
             client: 'sqlite3',
             connection: {
-                filename: process.env.SQLITE_FILE_PATH || './mydb.sqlite'
+                filename: process.env.SQLITE_FILE_PATH || process.cwd() + '/mydb.sqlite'
             },
             useNullAsDefault: true,
         },

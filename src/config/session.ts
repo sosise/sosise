@@ -12,7 +12,7 @@ const sessionConfig = {
     /**
      * This is the secret used to sign the session cookie. This can be either a string for a single secret, or an array of multiple secrets.
      * If an array of secrets is provided, **only the first element will be used to sign** the session ID cookie,
-     *   while **all the elements will be considered when verifying the signature** in requests.
+     * while **all the elements will be considered when verifying the signature** in requests.
      * The secret itself should be not easily parsed by a human and would best be a random set of characters
      *
      * Best practices may include:
@@ -23,7 +23,7 @@ const sessionConfig = {
      *
      * Changing the secret value will invalidate all existing sessions.
      * In order to rotate the secret without invalidating sessions, provide an array of secrets,
-     *   with the new secret as first element of the array, and including previous secrets as the later elements.
+     * with the new secret as first element of the array, and including previous secrets as the later elements.
      */
     secret: process.env.SESSION_SECRET || 'secret-cat',
 
