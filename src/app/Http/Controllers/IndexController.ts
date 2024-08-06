@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import HttpResponse from 'sosise-core/build/Types/HttpResponse';
+import { NextFunction, Request, Response } from "express";
+import HttpResponse from "sosise-core/build/Types/HttpResponse";
 
 export default class IndexController {
     /**

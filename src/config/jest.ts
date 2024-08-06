@@ -1,5 +1,5 @@
 import type { Config } from '@jest/types';
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 /**
  * Load .env.testing file when testing

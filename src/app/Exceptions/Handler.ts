@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
-import * as Sentry from '@sentry/node';
-import LoggerService from 'sosise-core/build/Services/Logger/LoggerService';
-import ExceptionResponse from 'sosise-core/build/Types/ExceptionResponse';
-import sentryConfig from '../../config/sentry';
-import IOC from 'sosise-core/build/ServiceProviders/IOC';
+import { Request, Response } from "express";
+import IOC from "sosise-core/build/ServiceProviders/IOC";
+import LoggerService from "sosise-core/build/Services/Logger/LoggerService";
+import ExceptionResponse from "sosise-core/build/Types/ExceptionResponse";
+import * as Sentry from "@sentry/node";
+import sentryConfig from "../../config/sentry";
 
 export default class Handler {
     /**

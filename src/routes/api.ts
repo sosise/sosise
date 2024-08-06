@@ -1,7 +1,8 @@
-import express from 'express';
-import { Request, Response, NextFunction } from 'express';
-import IndexController from '../app/Http/Controllers/IndexController';
-import DocumentationBasicAuthMiddleware from '../app/Http/Middlewares/DocumentationBasicAuthMiddleware';
+import express from "express";
+import { NextFunction, Request, Response } from "express";
+import IndexController from "../app/Http/Controllers/IndexController";
+import DocumentationBasicAuthMiddleware from "../app/Http/Middlewares/DocumentationBasicAuthMiddleware";
+
 const router = express.Router();
 
 // IndexController

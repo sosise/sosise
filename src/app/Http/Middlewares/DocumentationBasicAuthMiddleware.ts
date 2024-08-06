@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import documentationConfig from '../../../config/documentation';
+import { NextFunction, Request, Response } from "express";
+import documentationConfig from "../../../config/documentation";
 
 export default class DocumentationBasicAuthMiddleware {
     /**

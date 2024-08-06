@@ -19,22 +19,22 @@ const databaseConfig = {
                 database: process.env.DB_PROJECT_DATABASE || 'sosise',
                 user: process.env.DB_PROJECT_USERNAME || 'root',
                 password: process.env.DB_PROJECT_PASSWORD || 'root',
-                // charset: 'utf8mb4',
-                // timezone: 'UTC',
+                charset: 'utf8mb4',
+                timezone: 'UTC',
             },
             /**
              * Knex uses Tarn.js for pooling
              * You can read more about it's configuration params here: https://github.com/vincit/tarn.js
              */
             pool: {
-                min: 0,
+                min: 2,
                 max: 5,
-                // createTimeoutMillis: 60000,
-                // acquireTimeoutMillis: 60000,
-                // idleTimeoutMillis: 60000,
-                // reapIntervalMillis: 2000,
-                // createRetryIntervalMillis: 200,
-                // propagateCreateError: false,
+                createTimeoutMillis: 60000,
+                acquireTimeoutMillis: 60000,
+                idleTimeoutMillis: 60000,
+                reapIntervalMillis: 2000,
+                createRetryIntervalMillis: 200,
+                propagateCreateError: false,
             }
         },
 
@@ -53,8 +53,8 @@ const databaseConfig = {
                     enableArithAbort: true,
                     encrypt: false
                 },
-                // charset: 'utf8mb4',
-                // timezone: 'UTC',
+                charset: 'utf8mb4',
+                timezone: 'UTC',
             },
             // requestTimeout: 30000,
         },

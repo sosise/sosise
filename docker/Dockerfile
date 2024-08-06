@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.20
 
 # Workdirectory
 WORKDIR /var/www/app
@@ -6,9 +6,7 @@ WORKDIR /var/www/app
 RUN \
     # Install packages
     apk add --no-cache \
-    nodejs-current npm tzdata supervisor dcron bash git make && \
-    # Update npm to the 7.x version (atm it is the latest version)
-    npm install -g npm@^7 && \
+    nodejs-current npm tzdata supervisor dcron && \
     # Configure timezone
     cp /usr/share/zoneinfo/Asia/Almaty /etc/localtime && \
     echo "Asia/Almaty" > /etc/timezone
