@@ -9,7 +9,7 @@ const databaseConfig = {
      */
     connections: {
         /**
-         * Project database connection
+         * (MySQL) Project database connection
          */
         project: {
             client: 'mysql',
@@ -36,6 +36,68 @@ const databaseConfig = {
                 createRetryIntervalMillis: 200,
                 propagateCreateError: false,
             }
+        },
+
+        /**
+         * CockroachDB database connection
+         */
+        cockroachdb: {
+            client: 'cockroachdb',
+            connection: {
+                host: process.env.DB_PROJECT_HOST || 'localhost',
+                port: Number(process.env.DB_PROJECT_PORT || 3306),
+                database: process.env.DB_PROJECT_DATABASE || 'sosise',
+                user: process.env.DB_PROJECT_USERNAME || 'root',
+                password: process.env.DB_PROJECT_PASSWORD || 'root',
+                // charset: 'utf8mb4',
+                // timezone: 'UTC',
+            },
+            /**
+             * Knex uses Tarn.js for pooling
+             * You can read more about it's configuration params here: https://github.com/vincit/tarn.js
+             */
+            pool: {
+                min: 2,
+                max: 10,
+                createTimeoutMillis: 60000,
+                acquireTimeoutMillis: 60000,
+                idleTimeoutMillis: 60000,
+                reapIntervalMillis: 2000,
+                createRetryIntervalMillis: 200,
+                propagateCreateError: false,
+            },
+            // debug: true,
+        },
+
+        /**
+         * PostgreSQL database connection
+         */
+        postgresql: {
+            client: 'pg',
+            connection: {
+                host: process.env.DB_PROJECT_HOST || 'localhost',
+                port: Number(process.env.DB_PROJECT_PORT || 3306),
+                database: process.env.DB_PROJECT_DATABASE || 'sosise',
+                user: process.env.DB_PROJECT_USERNAME || 'root',
+                password: process.env.DB_PROJECT_PASSWORD || 'root',
+                // charset: 'utf8mb4',
+                // timezone: 'UTC',
+            },
+            /**
+             * Knex uses Tarn.js for pooling
+             * You can read more about it's configuration params here: https://github.com/vincit/tarn.js
+             */
+            pool: {
+                min: 2,
+                max: 10,
+                createTimeoutMillis: 60000,
+                acquireTimeoutMillis: 60000,
+                idleTimeoutMillis: 60000,
+                reapIntervalMillis: 2000,
+                createRetryIntervalMillis: 200,
+                propagateCreateError: false,
+            },
+            // debug: true,
         },
 
         /**
