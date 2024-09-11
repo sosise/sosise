@@ -29,12 +29,12 @@ const databaseConfig = {
             pool: {
                 min: 2,
                 max: 5,
-                createTimeoutMillis: 60000,
-                acquireTimeoutMillis: 60000,
-                idleTimeoutMillis: 60000,
-                reapIntervalMillis: 2000,
-                createRetryIntervalMillis: 200,
-                propagateCreateError: false,
+                // createTimeoutMillis: 60000,
+                // acquireTimeoutMillis: 60000,
+                // idleTimeoutMillis: 60000,
+                // reapIntervalMillis: 2000,
+                // createRetryIntervalMillis: 200,
+                // propagateCreateError: false,
             }
         },
 
