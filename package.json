@@ -33,7 +33,7 @@
     "knex": "^3.1.0",
     "lodash": "^4.17.20",
     "pg": "^8.12.0",
-    "sosise-core": "^0.11.5",
+    "sosise-core": "^0.11.7",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
