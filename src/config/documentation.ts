@@ -5,8 +5,8 @@ const documentation = {
     basicAuth: {
         enabled: process.env.DOCUMENTATION_BASIC_AUTH_ENABLED === 'true',
         user: process.env.DOCUMENTATION_BASIC_AUTH_USER,
-        pass: process.env.DOCUMENTATION_BASIC_AUTH_PASS
-    }
+        pass: process.env.DOCUMENTATION_BASIC_AUTH_PASS,
+    },
 };
 
 export default documentation;

@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from "express";
-import HttpResponse from "sosise-core/build/Types/HttpResponse";
+import { NextFunction, Request, Response } from 'express';
+import HttpResponse from 'sosise-core/build/Types/HttpResponse';
 
 export default class IndexController {
     /**
@@ -11,7 +11,7 @@ export default class IndexController {
             const httpResponse: HttpResponse = {
                 code: 1000,
                 message: 'Some example message',
-                data: null
+                data: null,
             };
 
             // Send response

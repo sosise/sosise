@@ -1,4 +1,4 @@
-import { NodeOptions } from "@sentry/node";
+import { NodeOptions } from '@sentry/node';
 
 const sentryConfig: NodeOptions = {
     /**

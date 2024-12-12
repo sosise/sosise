@@ -42,13 +42,13 @@ const cacheConfig = {
             // No configuration
         },
         fs: {
-            filePath: process.cwd() + '/storage/cache/cache.json'
+            filePath: process.cwd() + '/storage/cache/cache.json',
         },
         redis: {
             host: process.env.CACHE_REDIS_HOST || 'redis',
             port: Number(process.env.CACHE_REDIS_PORT || 6379),
         },
-    }
+    },
 };
 
 export default cacheConfig;

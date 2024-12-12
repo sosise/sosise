@@ -35,7 +35,7 @@ const databaseConfig = {
                 // reapIntervalMillis: 2000,
                 // createRetryIntervalMillis: 200,
                 // propagateCreateError: false,
-            }
+            },
         },
 
         /**
@@ -131,7 +131,7 @@ const databaseConfig = {
         //     },
         //     useNullAsDefault: true,
         // },
-    }
+    },
 };
 
 export default databaseConfig;

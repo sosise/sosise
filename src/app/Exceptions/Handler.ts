@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
-import IOC from "sosise-core/build/ServiceProviders/IOC";
-import LoggerService from "sosise-core/build/Services/Logger/LoggerService";
-import ExceptionResponse from "sosise-core/build/Types/ExceptionResponse";
-import * as Sentry from "@sentry/node";
-import sentryConfig from "../../config/sentry";
+import { Request, Response } from 'express';
+import IOC from 'sosise-core/build/ServiceProviders/IOC';
+import LoggerService from 'sosise-core/build/Services/Logger/LoggerService';
+import ExceptionResponse from 'sosise-core/build/Types/ExceptionResponse';
+import * as Sentry from '@sentry/node';
+import sentryConfig from '../../config/sentry';
 
 export default class Handler {
     /**
@@ -14,12 +14,16 @@ export default class Handler {
         const logger = IOC.make(LoggerService) as LoggerService;
 
         // Exception should handle it's response itself
-        if (typeof exception.handle !== "undefined") {
+        if (typeof exception.handle !== 'undefined') {
             // Let exception handle it's response
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse, exception.loggingChannel ?? undefined);
+            logger.critical(
+                `${exception.constructor.name} exception occurred`,
+                exceptionResponse,
+                exception.loggingChannel ?? undefined,
+            );
 
             // Response
             return response.status(exceptionResponse.httpCode || 500).send(exceptionResponse);
@@ -32,8 +36,8 @@ export default class Handler {
             httpCode: 500,
             message: exception.message,
             data: {
-                stack: exception.stack.split('\n').map((element) => element.trim())
-            }
+                stack: exception.stack.split('\n').map((element) => element.trim()),
+            },
         };
 
         // Log
@@ -70,12 +74,16 @@ export default class Handler {
         }
 
         // Exception should handle it's response itself
-        if (typeof exception.handle !== "undefined") {
+        if (typeof exception.handle !== 'undefined') {
             // Let exception handle it's response
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse, exception.loggingChannel ?? undefined);
+            logger.critical(
+                `${exception.constructor.name} exception occurred`,
+                exceptionResponse,
+                exception.loggingChannel ?? undefined,
+            );
 
             // Stop at this point
             return;
@@ -86,8 +94,8 @@ export default class Handler {
         const response: ExceptionResponse = {
             message: exception.message,
             data: {
-                stack: exception.stack.split('\n').map((element) => element.trim())
-            }
+                stack: exception.stack.split('\n').map((element) => element.trim()),
+            },
         };
 
         // Log

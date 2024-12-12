@@ -13,10 +13,10 @@
     "start": "npm run serve",
     "serve-docs": "docsify serve ./docs",
     "watch": "npm run build && tsc-watch --onSuccess 'node build/server.js'",
-    "cscheck": "./node_modules/.bin/tslint --project tsconfig.json",
-    "eccheck": "./node_modules/.bin/editorconfig-checker -exclude \"(node_modules|build|docs)\"",
     "test": "jest -c ./build/config/jest.js --coverage",
-    "update-sosise": "npm install sosise-core@latest"
+    "update-sosise": "npm install sosise-core@latest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "Igor Kov",
   "license": "MIT",
@@ -33,7 +33,7 @@
     "knex": "^3.1.0",
     "lodash": "^4.17.20",
     "pg": "^8.12.0",
-    "sosise-core": "^0.11.7",
+    "sosise-core": "^0.11.8",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -45,11 +45,14 @@
     "@types/lodash": "^4.14.167",
     "@types/node": "^14.14.20",
     "@types/uuid": "^8.3.0",
-    "editorconfig": "^0.15.3",
-    "editorconfig-checker": "^3.3.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "jest": "^26.6.3",
     "tsc-watch": "^4.2.9",
     "tslint": "^6.1.3",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "typescript-eslint": "^8.18.0"
   }
 }

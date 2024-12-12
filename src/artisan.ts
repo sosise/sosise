@@ -1,6 +1,6 @@
 // The most first thing you need to load the config
-import dotenv from "dotenv";
-import Artisan from "sosise-core/build/artisan";
+import dotenv from 'dotenv';
+import Artisan from 'sosise-core/build/artisan';
 
 dotenv.config();
 

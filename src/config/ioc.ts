@@ -11,8 +11,7 @@ const iocConfig = {
      * How to use:
      * const logger = IOC.makeSingleton(LoggerService) as LoggerService;
      */
-    singletons: {
-    },
+    singletons: {},
 
     /**
      * Non singleton services
@@ -23,8 +22,7 @@ const iocConfig = {
      * How to use:
      * const logger = IOC.make(LoggerService) as LoggerService;
      */
-    nonSingletons: {
-    }
+    nonSingletons: {},
 };
 
 export default iocConfig;

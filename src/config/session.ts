@@ -37,8 +37,7 @@ const sessionConfig = {
          *
          * Read more about possible params here https://www.npmjs.com/package/memorystore
          */
-        memory: {
-        },
+        memory: {},
 
         /**
          * File storage
@@ -46,7 +45,7 @@ const sessionConfig = {
          * Read more about possible params here https://www.npmjs.com/package/session-file-store
          */
         file: {
-            path: process.cwd() + '/storage/sessions'
+            path: process.cwd() + '/storage/sessions',
         },
 
         /**
@@ -60,7 +59,7 @@ const sessionConfig = {
             host: process.env.SESSION_REDIS_HOST || 'redis',
             port: Number(process.env.SESSIOn_REDIS_PORT || 6379),
             prefix: 'session-',
-            ttl: 86400 // 86400 - one day
+            ttl: 86400, // 86400 - one day
         },
     },
 

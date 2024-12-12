@@ -17,11 +17,11 @@ const mailConfig = {
         secure: false,
         auth: {
             user: process.env.MAILER_USERNAME,
-            pass: process.env.MAILER_PASSWORD
+            pass: process.env.MAILER_PASSWORD,
         },
         tls: {
-            ciphers: 'SSLv3'
-        }
+            ciphers: 'SSLv3',
+        },
 
         /**
          * Example GMail SMTP configuration

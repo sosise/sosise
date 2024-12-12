@@ -38,16 +38,16 @@ const loggingConfig = {
          * Default channel where all logs will be written when no channel is specified when using log functions
          */
         default: {
-            logFileNamePrefix: 'sosise'
+            logFileNamePrefix: 'sosise',
         },
 
         /**
          * Example channel, use it like: TODO
          */
         example: {
-            logFileNamePrefix: 'example'
+            logFileNamePrefix: 'example',
         },
-    }
+    },
 };
 
 export default loggingConfig;
