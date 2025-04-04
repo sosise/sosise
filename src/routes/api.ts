@@ -13,9 +13,6 @@ router.get('/', (request: Request, response: Response, next: NextFunction) => {
 
 // Documentation
 const documentationBasicAuthMiddleware = new DocumentationBasicAuthMiddleware();
-router.use('/docs', [
-    documentationBasicAuthMiddleware.handle,
-    express.static(process.cwd() + '/docs', { index: 'index.html' }),
-]);
+router.use('/docs', [documentationBasicAuthMiddleware.handle, express.static(process.cwd() + '/docs', { index: 'index.html' })]);
 
 export default router;

@@ -19,11 +19,7 @@ export default class Handler {
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical(
-                `${exception.constructor.name} exception occurred`,
-                exceptionResponse,
-                exception.loggingChannel ?? undefined,
-            );
+            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse, exception.loggingChannel ?? undefined);
 
             // Response
             return response.status(exceptionResponse.httpCode || 500).send(exceptionResponse);
@@ -79,11 +75,7 @@ export default class Handler {
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
             // Log
-            logger.critical(
-                `${exception.constructor.name} exception occurred`,
-                exceptionResponse,
-                exception.loggingChannel ?? undefined,
-            );
+            logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse, exception.loggingChannel ?? undefined);
 
             // Stop at this point
             return;
