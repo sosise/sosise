@@ -1,7 +1,7 @@
 import express from 'express';
 import { NextFunction, Request, Response } from 'express';
 import IndexController from '../app/Http/Controllers/IndexController';
-import DocumentationBasicAuthMiddleware from '../app/Http/Middlewares/DocumentationBasicAuthMiddleware';
+import DocumentationBasicAuthMiddleware from 'sosise-core/build/Middlewares/DocumentationBasicAuthMiddleware';
 
 const router = express.Router();
 
