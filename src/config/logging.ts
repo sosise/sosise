@@ -47,6 +47,20 @@ const loggingConfig = {
         example: {
             logFileNamePrefix: 'example',
         },
+
+        /**
+         * Cache channel for cache-related logs
+         */
+        cache: {
+            logFileNamePrefix: 'cache',
+        },
+
+        /**
+         * EventBus channel for event bus-related logs
+         */
+        eventbus: {
+            logFileNamePrefix: 'eventbus',
+        },
     },
 };
 

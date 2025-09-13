@@ -1,6 +1,6 @@
 {
   "name": "sosise",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Sosise is a web application boilerplate/framework with an expressive, elegant syntax. A Sosise provides a structure and starting point for creating your application, allowing you to focus on creating something amazing while we sweat the details.",
   "main": "server.js",
   "repository": {
@@ -33,7 +33,7 @@
     "knex": "^3.1.0",
     "lodash": "^4.17.20",
     "pg": "^8.12.0",
-    "sosise-core": "^1.0.0",
+    "sosise-core": "^1.1.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
