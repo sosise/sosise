@@ -1,6 +1,6 @@
 {
   "name": "sosise",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Sosise is a web application boilerplate/framework with an expressive, elegant syntax. A Sosise provides a structure and starting point for creating your application, allowing you to focus on creating something amazing while we sweat the details.",
   "main": "server.js",
   "repository": {
@@ -12,7 +12,8 @@
     "serve": "node build/server.js",
     "start": "npm run serve",
     "serve-docs": "docsify serve ./docs",
-    "watch": "npm run build && tsc-watch --onSuccess 'node build/server.js'",
+    "watch": "nodemon",
+    "dev": "nodemon",
     "test": "jest -c ./build/config/jest.js --coverage",
     "update-sosise": "npm install sosise-core@latest",
     "lint": "eslint .",
@@ -33,7 +34,7 @@
     "knex": "^3.1.0",
     "lodash": "^4.17.20",
     "pg": "^8.12.0",
-    "sosise-core": "^1.1.0",
+    "sosise-core": "^1.1.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -50,7 +51,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "jest": "^26.6.3",
-    "tsc-watch": "^4.2.9",
+    "nodemon": "^3.1.10",
     "tslint": "^6.1.3",
     "typescript": "^4.1.3",
     "typescript-eslint": "^8.18.0"
