@@ -1,27 +1,18 @@
 #!/usr/bin/env sh
 
-# Variables
-TAG=latest
-NAME=sosise
-IMAGENAME=${NAME}:${TAG}
-ARCH=$(uname -m)
-
 # Build app
 npm run build
 
-# Build and deploy based on arch
-if [[ "$ARCH" == "arm64" ]]
-    then
-    # Build for ARM architecture
-    echo "ARM architecture. Using buildx for cross-platform build."
-    docker buildx build --platform linux/amd64 -t ${IMAGENAME} -f docker/Dockerfile .
+# Build Docker image
+IMAGE="sosise:$(date +%Y-%m-%d)"
+
+if [ "$(uname -m)" = "arm64" ]; then
+    echo "Building for AMD64 on ARM..."
+    docker buildx build --platform linux/amd64 -t "$IMAGE" -f docker/Dockerfile .
 else
-    # Build for non-ARM architectures
-    echo "Non-ARM architecture. Using standard docker build and push."
-    docker build -t ${IMAGENAME} -f docker/Dockerfile .
+    echo "Building native image..."
+    docker build -t "$IMAGE" -f docker/Dockerfile .
 fi
 
-# Run container
-GREEN='\033[0;32m'
-NC='\033[0m'
-echo "To run the container use this command: ${GREEN}docker run --rm --name sosise -p 10000:10000 ${IMAGENAME}${NC}"
+# Show run command
+echo "Run: docker run --rm --name sosise -p 10000:10000 $IMAGE"

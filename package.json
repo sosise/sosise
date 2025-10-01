@@ -1,6 +1,6 @@
 {
   "name": "sosise",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Sosise is a web application boilerplate/framework with an expressive, elegant syntax. A Sosise provides a structure and starting point for creating your application, allowing you to focus on creating something amazing while we sweat the details.",
   "main": "server.js",
   "repository": {
@@ -8,16 +8,17 @@
     "url": "https://github.com/sosise/sosise"
   },
   "scripts": {
-    "build": "rm -rf build && rm -rf docs/src/Types docs/src/Unifiers docs/src/Enums && cp -R src/app/Types docs/src/. && cp -R src/app/Unifiers docs/src/. && cp -R src/app/Enums docs/src/. && tsc",
-    "serve": "node build/server.js",
-    "start": "npm run serve",
-    "serve-docs": "docsify serve ./docs",
-    "watch": "nodemon",
     "dev": "nodemon",
+    "watch": "nodemon",
+    "build": "npm run clean:docs && npm run clean:migrations && npm run copy-docs && tsc",
+    "start": "node build/server.js",
+    "clean:docs": "rm -rf docs/src/Types docs/src/Unifiers docs/src/Enums",
+    "clean:migrations": "rm -rf build/database/migrations",
+    "copy-docs": "cp -R src/app/Types src/app/Unifiers src/app/Enums docs/src/.",
     "test": "jest -c ./build/config/jest.js --coverage",
-    "update-sosise": "npm install sosise-core@latest",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "update-sosise": "npm install sosise-core@latest"
   },
   "author": "Igor Kov",
   "license": "MIT",
@@ -34,7 +35,7 @@
     "knex": "^3.1.0",
     "lodash": "^4.17.20",
     "pg": "^8.12.0",
-    "sosise-core": "^1.1.1",
+    "sosise-core": "^1.1.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
