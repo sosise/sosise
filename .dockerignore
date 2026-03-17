@@ -1,2 +1,13 @@
 .git/
 .gitignore
+.claude/
+memory/
+node_modules/
+build/
+storage/logs/*
+storage/sessions/*
+storage/cache/cache.json
+*.md
+.env
+.env.*
+!.env.example

@@ -30,6 +30,50 @@ const loggingConfig = {
     logFilesDirectory: process.cwd() + '/storage/logs',
 
     /**
+     * Log rotation settings
+     * Rotation runs on application startup and periodically (every checkIntervalHours)
+     */
+    rotation: {
+        /**
+         * Enable automatic log rotation
+         */
+        enabled: true,
+
+        /**
+         * Maximum size of a single log file in megabytes
+         * When the active log file exceeds this, it is rotated (renamed with a numeric suffix and compressed)
+         * A new empty file takes its place automatically on next write
+         * Set to 0 to disable size-based rotation of active files
+         */
+        maxFileSizeMb: 50,
+
+        /**
+         * Compress (gzip) log files older than this many days
+         * Rotated chunks from the current day (e.g. sosise-2026-03-17.1.log) are compressed immediately
+         * Set to 0 to compress all non-active files immediately
+         */
+        compressAfterDays: 1,
+
+        /**
+         * Delete log files (including compressed) older than this many days
+         */
+        maxAgeDays: 14,
+
+        /**
+         * Maximum total size of log directory in megabytes (including compressed files)
+         * When exceeded, oldest files are deleted first
+         * The currently active log file is NEVER deleted
+         */
+        maxTotalSizeMb: 500,
+
+        /**
+         * How often to check for rotation in hours
+         * Also runs once on application startup
+         */
+        checkIntervalHours: 1,
+    },
+
+    /**
      * Logging channels
      * Use them to separate different logs to different files
      */
@@ -42,7 +86,7 @@ const loggingConfig = {
         },
 
         /**
-         * Example channel, use it like: TODO
+         * Example channel, use it like: logger.info('message', data, 'example')
          */
         example: {
             logFileNamePrefix: 'example',

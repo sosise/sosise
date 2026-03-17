@@ -15,6 +15,7 @@
         "allowSyntheticDefaultImports": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "preserveSymlinks": true,
         "outDir": "build",
         "rootDir": "src",
     },

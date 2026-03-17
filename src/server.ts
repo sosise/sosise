@@ -1,6 +1,6 @@
 // The most first thing you need to load the config
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ quiet: true });
 
 import Server from 'sosise-core/build/Server/Server';
 

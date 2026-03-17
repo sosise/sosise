@@ -23,23 +23,13 @@ const throttlingConfig = {
      */
     routeRules: [
         {
-            // HTTP method for which this rule applies
             httpMethod: 'GET',
-
-            // URL path for which this rule applies
             path: '/customer/get-all-customers',
-
-            // Maximum number of requests allowed per rolling minute
             maxRequestsPerMinute: 5,
         },
         {
-            // HTTP method for which this rule applies
             httpMethod: 'GET',
-
-            // URL path for which this rule applies
             path: '/customer/:id',
-
-            // Maximum number of requests allowed per rolling minute
             maxRequestsPerMinute: 10,
         },
     ],

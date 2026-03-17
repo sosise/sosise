@@ -3,7 +3,7 @@ const mailConfig = {
      * If set to true, fake emails would be sent
      * Use this option for development
      */
-    dryrun: false,
+    dryrun: true,
 
     /**
      * SMTP configuration

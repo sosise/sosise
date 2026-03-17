@@ -2,7 +2,7 @@
 import dotenv from 'dotenv';
 import Artisan from 'sosise-core/build/artisan';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const artisan = new Artisan();
 artisan.run(process.argv);

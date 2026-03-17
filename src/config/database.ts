@@ -9,10 +9,11 @@ const databaseConfig = {
      */
     connections: {
         /**
-         * (MySQL) Project database connection
+         * (MySQL/MariaDB) Project database connection
+         * Driver: npm install mysql2
          */
         project: {
-            client: 'mysql',
+            client: 'mysql2',
             connection: {
                 host: process.env.DB_PROJECT_HOST || 'localhost',
                 port: Number(process.env.DB_PROJECT_PORT || 3306),
@@ -40,6 +41,7 @@ const databaseConfig = {
 
         /**
          * CockroachDB database connection
+         * Driver: npm install pg
          */
         // project: {
         //     client: 'cockroachdb',
@@ -71,13 +73,14 @@ const databaseConfig = {
 
         /**
          * PostgreSQL database connection
+         * Driver: npm install pg
          */
         // project: {
         //     client: 'pg',
         //     connection: {
         //         host: process.env.DB_PROJECT_HOST || 'localhost',
-        //         port: Number(process.env.DB_PROJECT_PORT || 26257),
-        //         database: process.env.DB_PROJECT_DATABASE || 'defaultdb',
+        //         port: Number(process.env.DB_PROJECT_PORT || 5432),
+        //         database: process.env.DB_PROJECT_DATABASE || 'sosise',
         //         user: process.env.DB_PROJECT_USERNAME || 'root',
         //         password: process.env.DB_PROJECT_PASSWORD || 'root',
         //         // charset: 'utf8mb4',
@@ -102,6 +105,7 @@ const databaseConfig = {
 
         /**
          * MSSQL database connection
+         * Driver: npm install tedious
          */
         // project: {
         //     client: 'mssql',
@@ -119,17 +123,6 @@ const databaseConfig = {
         //         timezone: 'UTC',
         //     },
         //     // requestTimeout: 30000,
-        // },
-
-        /**
-         * SQLITE database connection
-         */
-        // sqlite: {
-        //     client: 'sqlite3',
-        //     connection: {
-        //         filename: process.env.SQLITE_FILE_PATH || process.cwd() + '/mydb.sqlite'
-        //     },
-        //     useNullAsDefault: true,
         // },
     },
 };

@@ -2,8 +2,6 @@ import { Request, Response } from 'express';
 import IOC from 'sosise-core/build/ServiceProviders/IOC';
 import LoggerService from 'sosise-core/build/Services/Logger/LoggerService';
 import ExceptionResponse from 'sosise-core/build/Types/ExceptionResponse';
-import * as Sentry from '@sentry/node';
-import sentryConfig from '../../config/sentry';
 
 export default class Handler {
     /**
@@ -32,7 +30,7 @@ export default class Handler {
             httpCode: 500,
             message: exception.message,
             data: {
-                stack: exception.stack.split('\n').map((element) => element.trim()),
+                stack: exception.stack.split('\n').map((element: string) => element.trim()),
             },
         };
 
@@ -57,18 +55,6 @@ export default class Handler {
         // Instantiate logger
         const logger = IOC.make(LoggerService) as LoggerService;
 
-        // Check if exception should be sent to sentry
-        if (exception.sendToSentry !== undefined && exception.sendToSentry === true) {
-            // Send exception to sentry
-            Sentry.init({
-                environment: process.env.APP_ENV,
-                dsn: sentryConfig.dsn,
-                tracesSampleRate: 1.0,
-            });
-            Sentry.captureException(exception);
-            await Sentry.flush();
-        }
-
         // Exception should handle it's response itself
         if (typeof exception.handle !== 'undefined') {
             // Let exception handle it's response
@@ -83,14 +69,14 @@ export default class Handler {
 
         // Otherwise fallback response will be sent
         // Prepare response
-        const response: ExceptionResponse = {
+        const exceptionResponse: ExceptionResponse = {
             message: exception.message,
             data: {
-                stack: exception.stack.split('\n').map((element) => element.trim()),
+                stack: exception.stack.split('\n').map((element: string) => element.trim()),
             },
         };
 
         // Log
-        logger.critical(`${exception.constructor.name} exception occurred`, response);
+        logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse);
     }
 }
