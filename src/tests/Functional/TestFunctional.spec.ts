@@ -8,7 +8,7 @@ describe('Example test suit', () => {
     });
 
     test('Example async test', async () => {
-        const someVariable: number = 42;
+        const someVariable: Promise<number> = Promise.resolve(42);
         await expect(someVariable).resolves.toEqual(42);
     });
 });
