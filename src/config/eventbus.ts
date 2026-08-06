@@ -70,9 +70,16 @@ const eventbusConfig = {
              *   - The position is shared by every durable handler of the same event, so
              *     register all durable subscriptions during startup, a handler added later
              *     does not receive the history already consumed by the others
+             *   - The position belongs to the serviceName, not to the process. Replicas of
+             *     one service share it, durable subscriptions broadcast to services and are
+             *     not a work queue, use the queue to distribute work across replicas
+             *   - Durable events live only in Redis, enable persistence (appendonly yes) on
+             *     the instance, a Redis that loses its data loses the stored events
              * - Automatic reconnection with exponential backoff (100ms to 3s)
              * - Subscriptions are restored by the Redis client after reconnection, durable
              *   readers catch up with whatever was emitted while the connection was down
+             * - An explicit disconnect() closes the connections for good, connect() opens
+             *   new ones and subscribes every registered pattern again before it resolves
              */
         },
     },

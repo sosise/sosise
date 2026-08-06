@@ -28,7 +28,7 @@
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "knex": "^3.1.0",
-    "sosise-core": "^2.2.0"
+    "sosise-core": "^2.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
