@@ -8,10 +8,12 @@ const throttlingConfig = {
     isEnabled: true,
 
     /**
-     * The HTTP header used to determine the client's IP address
-     * This header must be set by a trusted proxy or load balancer, do not accept an arbitrary header value directly from the client
+     * Where the client IP address comes from
+     * null takes request.ip, which Express resolves through exactly the proxies HTTP_TRUST_PROXY trusts, so a client cannot forge it
+     * A header name reads that header instead, only safe when a trusted proxy overwrites it: the leftmost entry of an appended
+     * X-Forwarded-For is whatever the client sent
      */
-    clientIpHeader: 'X-Forwarded-For',
+    clientIpHeader: null,
 
     /**
      * List of CIDR subnets that are skipped (not throttled)
