@@ -12,7 +12,7 @@ export default class Handler {
         const logger = IOC.make(LoggerService) as LoggerService;
 
         // Exception should handle it's response itself
-        if (typeof exception.handle !== 'undefined') {
+        if (typeof exception?.handle !== 'undefined') {
             // Let exception handle it's response
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
@@ -28,14 +28,17 @@ export default class Handler {
         const httpResponse: ExceptionResponse = {
             code: 2000,
             httpCode: 500,
-            message: exception.message,
+            message: exception?.message ?? String(exception),
             data: {
-                stack: exception.stack.split('\n').map((element: string) => element.trim()),
+                // A value thrown without a stack, e.g. a string, is reported as it is instead of crashing the handler
+                stack: String(exception?.stack ?? exception)
+                    .split('\n')
+                    .map((element: string) => element.trim()),
             },
         };
 
         // Log
-        logger.critical(`${exception.constructor.name} exception occurred`, httpResponse);
+        logger.critical(`${exception?.constructor?.name} exception occurred`, httpResponse);
 
         // When in production or staging mode, modify the response
         // Hide all sensitive information
@@ -56,7 +59,7 @@ export default class Handler {
         const logger = IOC.make(LoggerService) as LoggerService;
 
         // Exception should handle it's response itself
-        if (typeof exception.handle !== 'undefined') {
+        if (typeof exception?.handle !== 'undefined') {
             // Let exception handle it's response
             const exceptionResponse: ExceptionResponse = exception.handle(exception);
 
@@ -70,13 +73,16 @@ export default class Handler {
         // Otherwise fallback response will be sent
         // Prepare response
         const exceptionResponse: ExceptionResponse = {
-            message: exception.message,
+            message: exception?.message ?? String(exception),
             data: {
-                stack: exception.stack.split('\n').map((element: string) => element.trim()),
+                // A value thrown without a stack, e.g. a string, is reported as it is instead of crashing the handler
+                stack: String(exception?.stack ?? exception)
+                    .split('\n')
+                    .map((element: string) => element.trim()),
             },
         };
 
         // Log
-        logger.critical(`${exception.constructor.name} exception occurred`, exceptionResponse);
+        logger.critical(`${exception?.constructor?.name} exception occurred`, exceptionResponse);
     }
 }
